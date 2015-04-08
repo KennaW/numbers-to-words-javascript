@@ -43,4 +43,24 @@ describe('numberInWords', function() {
     expect(numberInWords(50209)).to.equal("fifty thousand, two hundred nine");
   });
 
+  it('returns string "fifty-two thousand, two hundred nine" for integer 52209', function() {
+    expect(numberInWords(52209)).to.equal("fifty-two thousand, two hundred nine");
+  });
+
+  it('returns string "seventy-seven thousand, five hundred fourteen" for integer 77514', function() {
+    expect(numberInWords(77514)).to.equal("seventy-seven thousand, five hundred fourteen");
+  });
+
+  it('returns string "four hundred thousand, six hundred fifty-eight" for integer 400658', function() {
+    expect(numberInWords(400658)).to.equal("four hundred thousand, six hundred fifty-eight");
+  });
+
+  it('returns string "four hundred eighty-seven thousand, three hundred ninety-six" for integer 487396', function() {
+    expect(numberInWords(487396)).to.equal("four hundred eighty-seven thousand, three hundred ninety-six");
+  });
+
+  it('returns string "nine hundred fifteen thousand, thirty-one" for integer 915031', function() {
+    expect(numberInWords(915031)).to.equal("nine hundred fifteen thousand, thirty-one");
+  });
+
 });

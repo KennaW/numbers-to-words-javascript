@@ -28,10 +28,39 @@ function numberInWords(number) {
       number -= teen_thousands * 1000;
     } else if (number < 100000) {
       var ten_thousands = Math.floor(number / 1000);
-      num_words += words[ten_thousands] + " thousand, ";
+      var mod = ten_thousands % 10;
+
+      if (mod > 0) {
+        num_words += words[ten_thousands - mod] + "-" + words[mod] + " thousand, ";
+      } else {
+        num_words += words[ten_thousands - mod] + " thousand, ";
+      }
       number -= ten_thousands * 1000;
+    } else if (number < 1000000) {
+      var hundred_thousands = Math.floor(number / 100000);
+
+      if (number - hundred_thousands * 100000 < 10000) {
+        num_words += words[hundred_thousands] + " hundred thousand, ";
+      } else {
+        num_words += words[hundred_thousands] + " hundred ";
+      }
+
+      number -= hundred_thousands * 100000;
     }
   }
 
   return num_words;
 };
+
+$(document).ready(function() {
+  $("form#numberWord").submit(function(event) {
+    var number = $("input#number").val();
+
+    var string = numberInWords(number);
+
+    $("#result").text(string);
+
+    event.preventDefault();
+  });
+
+});
