@@ -22,10 +22,10 @@ function numberInWords(number) {
       var thousands = Math.floor(number / 1000);
       num_words += words[thousands] + " thousand, ";
       number -= thousands * 1000;
-    } else if (number < 10000) {
-      var thousands = Math.floor(number / 1000);
-      num_words += words[thousands] + " thousand, ";
-      number -= thousands * 1000;
+    } else if (number < 20000) {
+      var ten_thousands = Math.floor(number / 1000);
+      num_words += words[ten_thousands] + " thousand, ";
+      number -= ten_thousands * 1000;
     }
   }
 
