@@ -39,4 +39,8 @@ describe('numberInWords', function() {
     expect(numberInWords(12313)).to.equal("twelve thousand, three hundred thirteen");
   });
 
+  it('returns string "fifty thousand, two hundred nine" for integer 50209', function() {
+    expect(numberInWords(50209)).to.equal("fifty thousand, two hundred nine");
+  });
+
 });
